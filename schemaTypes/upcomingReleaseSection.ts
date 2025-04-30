@@ -32,7 +32,7 @@ export default defineType({
     }),
     defineField({
       name: 'image1',
-      title: 'Image 1 (Left)',
+      title: 'Image 1 (Back)',
       type: 'image',
       options: {hotspot: true},
       fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
@@ -40,7 +40,7 @@ export default defineType({
     }),
     defineField({
       name: 'image2',
-      title: 'Image 2 (Right)',
+      title: 'Image 2 (Cover)',
       type: 'image',
       options: {hotspot: true},
       fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],

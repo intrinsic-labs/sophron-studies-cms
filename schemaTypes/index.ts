@@ -13,6 +13,7 @@ import aboutHeroSection from './aboutHeroSection'
 import aboutBioSection from './aboutBioSection'
 import aboutGallerySection from './aboutGallerySection'
 import { productType } from './productType'
+import { categoryType } from './categoryType'
 
 // You will likely need schemas for 'post', 'author', 'category', etc. for the blog later.
 // Import them here when created.
@@ -25,6 +26,7 @@ export const schemaTypes = [
   authorType,
   blogHeroType,
   productType,
+  categoryType,
   upcomingReleaseSection,
   aboutPage,
 

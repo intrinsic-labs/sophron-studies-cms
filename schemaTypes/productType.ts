@@ -48,6 +48,13 @@ export const productType = defineType({
       description: 'Check this box if the product should be visible and purchasable on the site.',
       initialValue: true,
     }),
+    defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
+      description: 'Assign one or more categories for filtering products',
+    }),
     // Add other fields as needed, e.g., categories, dimensions, weight for shipping, etc.
   ],
   preview: {
