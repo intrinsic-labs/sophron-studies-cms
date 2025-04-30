@@ -8,6 +8,10 @@ import homePage from './homePage'
 import newsletterSection from './newsletterSection'
 import {postType} from './postType'
 import upcomingReleaseSection from './upcomingReleaseSection'
+import aboutPage from './aboutPage'
+import aboutHeroSection from './aboutHeroSection'
+import aboutBioSection from './aboutBioSection'
+import aboutGallerySection from './aboutGallerySection'
 
 // You will likely need schemas for 'post', 'author', 'category', etc. for the blog later.
 // Import them here when created.
@@ -27,4 +31,8 @@ export const schemaTypes = [
   featuredBlogPostSection,
   upcomingReleaseSection,
   newsletterSection,
+  aboutPage,
+  aboutHeroSection,
+  aboutBioSection,
+  aboutGallerySection,
 ]
