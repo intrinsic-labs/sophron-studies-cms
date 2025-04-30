@@ -3,8 +3,15 @@ import {defineField, defineType} from 'sanity'
 export default defineType({
   name: 'upcomingReleaseSection',
   title: 'Upcoming Release Section',
-  type: 'object',
+  type: 'document',
   fields: [
+    defineField({
+      name: 'internalTitle',
+      title: 'Internal Title',
+      type: 'string',
+      description: 'Identifier for this upcoming release within Sanity Studio (e.g., "Fall 2024 Book Release")',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'titlePart1',
       title: 'Title Part 1',
@@ -52,4 +59,17 @@ export default defineType({
       validation: (Rule) => Rule.uri({allowRelative: true}), // Allow relative links (e.g., /shop) or absolute URLs
     }),
   ],
+  preview: {
+    select: {
+      title: 'internalTitle',
+      media: 'image1',
+    },
+    prepare(selection) {
+        const { title, media } = selection
+        return {
+            title: title || 'Untitled Upcoming Release',
+            media: media,
+        }
+    }
+  }
 }) 

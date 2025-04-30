@@ -30,7 +30,28 @@ export default defineType({
     defineField({
       name: 'upcomingReleaseSection',
       title: 'Upcoming Release Section',
-      type: 'upcomingReleaseSection',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'reference',
+          title: 'Upcoming Release',
+          type: 'reference',
+          to: [{ type: 'upcomingReleaseSection' }],
+        }),
+        defineField({
+          name: 'customButtonText',
+          title: 'Custom Button Text (Optional)',
+          type: 'string',
+          description: 'Override the button text from the referenced section',
+        }),
+        defineField({
+          name: 'customButtonLink',
+          title: 'Custom Button Link (Optional)',
+          type: 'url',
+          description: 'Override the button link from the referenced section',
+          validation: (Rule) => Rule.uri({allowRelative: true}),
+        }),
+      ],
     }),
     defineField({
       name: 'newsletterSection',
