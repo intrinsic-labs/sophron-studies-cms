@@ -4,6 +4,7 @@ export default defineType({
   name: 'homePage',
   title: 'Home Page',
   type: 'document',
+  description: 'Manage content and sections for the website homepage',
   fields: [
     defineField({
       name: 'title',

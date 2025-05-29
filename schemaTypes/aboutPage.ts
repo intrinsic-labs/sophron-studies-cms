@@ -4,6 +4,7 @@ export default defineType({
   name: 'aboutPage',
   title: 'About Page',
   type: 'document',
+  description: 'Manage content and sections for the about page',
   fields: [
     defineField({
       name: 'title',

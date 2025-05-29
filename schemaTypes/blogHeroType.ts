@@ -2,8 +2,9 @@ import {defineField, defineType} from 'sanity'
 
 export const blogHeroType = defineType({
   name: 'blogHero',
-  title: 'Blog Hero',
+  title: 'Blog Page Header',
   type: 'document',
+  description: 'Configure the header section displayed on the blog listing page',
   fields: [
     defineField({
       name: 'title',

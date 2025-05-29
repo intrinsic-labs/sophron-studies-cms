@@ -2,8 +2,9 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'upcomingReleaseSection',
-  title: 'Upcoming Release Section',
+  title: 'Upcoming Releases',
   type: 'document',
+  description: 'Featured upcoming product releases and announcements',
   fields: [
     defineField({
       name: 'internalTitle',
