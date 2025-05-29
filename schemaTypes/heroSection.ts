@@ -13,6 +13,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'vimeoUrl',
+      title: 'Vimeo Video URL',
+      type: 'url',
+      description: 'Optional Vimeo video URL for the hero background. If provided, this will be used instead of the background image.',
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      })
+    }),
+    defineField({
       name: 'backgroundImage',
       title: 'Background Image',
       type: 'image',
@@ -28,7 +37,7 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         })
       ],
-      description: 'Optional background image for the hero.',
+      description: 'Fallback background image for the hero (used when no Vimeo URL is provided).',
     }),
     // Add fields for background video later if needed
   ],
