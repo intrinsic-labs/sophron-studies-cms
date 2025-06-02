@@ -2,8 +2,9 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'newsletterSection',
-  title: 'Newsletter Section',
-  type: 'object',
+  title: 'Newsletter Config',
+  type: 'document',
+  description: 'Global newsletter section configuration used across the site',
   fieldsets: [
     {
       name: 'content',
@@ -24,6 +25,14 @@ export default defineType({
     }
   ],
   fields: [
+    defineField({
+      name: 'internalTitle',
+      title: 'Internal Title',
+      type: 'string',
+      description: 'Internal title for organization in Sanity Studio (e.g., "Site Newsletter Configuration")',
+      initialValue: 'Site Newsletter Configuration',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -61,4 +70,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: 'internalTitle',
+    },
+    prepare(selection) {
+      return {title: selection.title || 'Newsletter Config'}
+    },
+  },
 }) 

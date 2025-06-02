@@ -32,6 +32,9 @@ export default defineConfig({
                     S.listItem()
                       .title('Blog Page Header')
                       .child(S.document().schemaType('blogHero').documentId('blogHero')),
+                    S.listItem()
+                      .title('Newsletter Config')
+                      .child(S.document().schemaType('newsletterSection').documentId('newsletterSection')),
                   ])
               ),
 
@@ -75,7 +78,10 @@ export default defineConfig({
 
             // Quick access to all content types (for advanced users)
             ...S.documentTypeListItems().filter(
-              (listItem) => !['homePage', 'aboutPage', 'blogHero', 'post', 'author', 'product', 'category', 'upcomingReleaseSection'].includes(listItem.getId())
+              (listItem) => {
+                const id = listItem.getId()
+                return id && !['homePage', 'aboutPage', 'blogHero', 'newsletterSection', 'post', 'author', 'product', 'category', 'upcomingReleaseSection'].includes(id)
+              }
             ),
           ])
     }),

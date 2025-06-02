@@ -82,7 +82,9 @@ export default defineType({
     defineField({
         name: 'newsletterSection',
         title: 'Newsletter Section',
-        type: 'newsletterSection', // Will reference the newsletterSection object type
+        type: 'reference',
+        to: [{ type: 'newsletterSection' }],
+        description: 'Reference to the global newsletter configuration',
     }),
     // Add other sections as needed (e.g., featured shop items)
   ],
