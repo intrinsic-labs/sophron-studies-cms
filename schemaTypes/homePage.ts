@@ -32,23 +32,46 @@ export default defineType({
       name: 'upcomingReleaseSection',
       title: 'Upcoming Release Section',
       type: 'object',
+      fieldsets: [
+        {
+          name: 'content',
+          title: 'Release Content',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          }
+        },
+        {
+          name: 'overrides',
+          title: 'Button Overrides',
+          description: 'Optional customizations for this page',
+          options: {
+            collapsible: true,
+            collapsed: true,
+            columns: 2
+          }
+        }
+      ],
       fields: [
         defineField({
           name: 'reference',
           title: 'Upcoming Release',
           type: 'reference',
+          fieldset: 'content',
           to: [{ type: 'upcomingReleaseSection' }],
         }),
         defineField({
           name: 'customButtonText',
           title: 'Custom Button Text (Optional)',
           type: 'string',
+          fieldset: 'overrides',
           description: 'Override the button text from the referenced section',
         }),
         defineField({
           name: 'customButtonLink',
           title: 'Custom Button Link (Optional)',
           type: 'url',
+          fieldset: 'overrides',
           description: 'Override the button link from the referenced section',
           validation: (Rule) => Rule.uri({allowRelative: true}),
         }),

@@ -4,40 +4,64 @@ export default defineType({
   name: 'featuredBlogPostSection',
   title: 'Featured Blog Post Section',
   type: 'object',
+  fieldsets: [
+    {
+      name: 'title',
+      title: 'Section Title',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        columns: 2
+      }
+    },
+    {
+      name: 'content',
+      title: 'Featured Post & Button',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      }
+    },
+    {
+      name: 'images',
+      title: 'Additional Images',
+      description: 'Two additional images for the layout (cover image will come from the blog post)',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        columns: 2
+      }
+    }
+  ],
   fields: [
     defineField({
       name: 'titlePart1',
-      title: 'Title Part 1',
+      title: 'Title Line 1',
       type: 'string',
-      description: 'First part of the section title (e.g., "From the")',
+      fieldset: 'title',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'titlePart2',
-      title: 'Title Part 2',
+      title: 'Title Line 2',
       type: 'string',
-      description: 'Second part of the section title (e.g., "Blog")',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'text',
-      title: 'Excerpt Text',
-      type: 'blockContent', // Rich text excerpt
-      description: 'Short introductory text for the featured post section.',
+      fieldset: 'title',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
         name: 'featuredPost',
         title: 'Featured Post',
         type: 'reference',
+        fieldset: 'content',
         to: [{type: 'post'}], // Assuming a 'post' document type exists for blog posts
-        description: 'Select the blog post to feature.',
+        description: 'Select the blog post to feature (excerpt and cover image will be pulled from the post).',
         validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'buttonText',
       title: 'Button Text',
       type: 'string',
+      fieldset: 'content',
       description: 'Text for the button (e.g., "Read More")',
       validation: (Rule) => Rule.required(),
     }),
@@ -51,27 +75,20 @@ export default defineType({
       name: 'image1',
       title: 'Image 1 (Large Left)',
       type: 'image',
+      fieldset: 'images',
       options: {hotspot: true},
       fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
-      description: 'First image for the collage layout.',
+      description: 'First additional image for the layout.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'image2',
       title: 'Image 2 (Medium Right)',
       type: 'image',
+      fieldset: 'images',
       options: {hotspot: true},
       fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
-      description: 'Second image for the collage layout.',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'image3',
-      title: 'Image 3 (Small Center)',
-      type: 'image',
-      options: {hotspot: true},
-      fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
-      description: 'Third image for the collage layout.',
+      description: 'Second additional image for the layout.',
       validation: (Rule) => Rule.required(),
     }),
   ],

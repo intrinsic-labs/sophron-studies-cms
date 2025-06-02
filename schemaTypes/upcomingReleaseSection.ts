@@ -5,6 +5,34 @@ export default defineType({
   title: 'Upcoming Releases',
   type: 'document',
   description: 'Featured upcoming product releases and announcements',
+  fieldsets: [
+    {
+      name: 'title',
+      title: 'Section Title',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        columns: 2
+      }
+    },
+    {
+      name: 'content',
+      title: 'Content & Button',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      }
+    },
+    {
+      name: 'images',
+      title: 'Images',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        columns: 2
+      }
+    }
+  ],
   fields: [
     defineField({
       name: 'internalTitle',
@@ -15,49 +43,56 @@ export default defineType({
     }),
     defineField({
       name: 'titlePart1',
-      title: 'Title Part 1',
+      title: 'Title Line 1',
       type: 'string',
+      fieldset: 'title',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'titlePart2',
-      title: 'Title Part 2',
+      title: 'Title Line 2',
       type: 'string',
+      fieldset: 'title',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'text',
-      title: 'Text',
+      title: 'Promotional Text',
       type: 'blockContent', // Rich text
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'image1',
-      title: 'Image 1 (Back)',
-      type: 'image',
-      options: {hotspot: true},
-      fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'image2',
-      title: 'Image 2 (Cover)',
-      type: 'image',
-      options: {hotspot: true},
-      fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
+      fieldset: 'content',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'buttonText',
       title: 'Button Text',
       type: 'string',
+      fieldset: 'content',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'buttonLink',
       title: 'Button Link',
       type: 'url',
+      fieldset: 'content',
       validation: (Rule) => Rule.uri({allowRelative: true}), // Allow relative links (e.g., /shop) or absolute URLs
+    }),
+    defineField({
+      name: 'image1',
+      title: 'Back Image',
+      type: 'image',
+      fieldset: 'images',
+      options: {hotspot: true},
+      fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'image2',
+      title: 'Cover Image',
+      type: 'image',
+      fieldset: 'images',
+      options: {hotspot: true},
+      fields: [defineField({ name: 'alt', type: 'string', title: 'Alt text', validation: (Rule) => Rule.required() })],
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
