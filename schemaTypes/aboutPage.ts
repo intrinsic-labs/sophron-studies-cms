@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'aboutPage',
@@ -50,14 +50,16 @@ export default defineType({
           title: 'Custom Button Link (Optional)',
           type: 'url',
           description: 'Override the button link from the referenced section',
-          validation: (Rule) => Rule.uri({allowRelative: true}),
+          validation: (Rule) => Rule.uri({ allowRelative: true }),
         }),
       ],
     }),
     defineField({
       name: 'newsletterSection',
       title: 'Newsletter Section',
-      type: 'newsletterSection',
+      type: 'reference',
+      to: [{ type: 'newsletterSection' }],
+      description: 'Reference to the global newsletter configuration',
     }),
   ],
   preview: {
@@ -65,7 +67,7 @@ export default defineType({
       title: 'title',
     },
     prepare(selection) {
-      return {title: selection.title || 'About Page'}
+      return { title: selection.title || 'About Page' }
     },
   },
 }) 

@@ -77,8 +77,6 @@ export default defineType({
         }),
       ],
     }),
-    // Assuming Newsletter is consistent across pages, maybe a global setting later?
-    // For now, include it in the home page document.
     defineField({
         name: 'newsletterSection',
         title: 'Newsletter Section',
