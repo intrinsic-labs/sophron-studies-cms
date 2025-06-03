@@ -5,6 +5,33 @@ export default defineType({
   title: 'About Page',
   type: 'document',
   description: 'Manage content and sections for the about page',
+  fieldsets: [
+    {
+      name: 'hero',
+      title: 'Hero Section',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      }
+    },
+    {
+      name: 'content',
+      title: 'Content Sections',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      }
+    },
+    {
+      name: 'cta',
+      title: 'Call-to-Action Sections',
+      options: {
+        collapsible: true,
+        collapsed: true,
+        // columns: 2
+      }
+    }
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -17,21 +44,25 @@ export default defineType({
       name: 'aboutHeroSection',
       title: 'About Hero Section',
       type: 'aboutHeroSection',
+      fieldset: 'hero',
     }),
     defineField({
       name: 'aboutBioSection',
       title: 'About Bio Section',
       type: 'aboutBioSection',
+      fieldset: 'content',
     }),
     defineField({
       name: 'aboutGallerySection',
       title: 'About Gallery Section',
       type: 'aboutGallerySection',
+      fieldset: 'content',
     }),
     defineField({
       name: 'upcomingReleaseSection',
       title: 'Upcoming Release Section',
       type: 'object',
+      fieldset: 'cta',
       fields: [
         defineField({
           name: 'reference',
@@ -58,6 +89,7 @@ export default defineType({
       name: 'newsletterSection',
       title: 'Newsletter Section',
       type: 'reference',
+      fieldset: 'cta',
       to: [{ type: 'newsletterSection' }],
       description: 'Reference to the global newsletter configuration',
     }),

@@ -43,8 +43,8 @@ export const blogHeroType = defineType({
     }),
     defineField({
       name: 'description',
-      title: 'Description',
-      type: 'text',
+      title: 'Subtitle',
+      type: 'string',
       fieldset: 'content',
       description: 'Subtitle or description for the blog section',
       validation: (rule) => rule.required(),

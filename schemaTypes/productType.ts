@@ -38,9 +38,10 @@ export const productType = defineType({
     }),
     defineField({
       name: 'price',
-      title: 'Price',
+      title: 'Price ($)',
       type: 'number',
       validation: (Rule) => Rule.required().positive(), // Price must be positive
+      description: 'Price in USD',
     }),
     defineField({
       name: 'isAvailable',
