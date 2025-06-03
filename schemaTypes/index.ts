@@ -14,6 +14,7 @@ import aboutBioSection from './aboutBioSection'
 import aboutGallerySection from './aboutGallerySection'
 import { productType } from './productType'
 import { categoryType } from './categoryType'
+import testimonialsSection from './testimonialsSection'
 
 export const schemaTypes = [
   // Document types
@@ -35,4 +36,5 @@ export const schemaTypes = [
   aboutHeroSection,
   aboutBioSection,
   aboutGallerySection,
+  testimonialsSection,
 ]

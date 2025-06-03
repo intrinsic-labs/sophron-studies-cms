@@ -84,6 +84,12 @@ export default defineType({
         to: [{ type: 'newsletterSection' }],
         description: 'Reference to the global newsletter configuration',
     }),
+    defineField({
+        name: 'testimonialsSection',
+        title: 'Testimonials Section',
+        type: 'testimonialsSection',
+        description: 'Customer testimonials and reviews',
+    }),
     // Add other sections as needed (e.g., featured shop items)
   ],
   preview: {
