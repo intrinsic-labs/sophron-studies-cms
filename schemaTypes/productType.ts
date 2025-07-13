@@ -57,7 +57,39 @@ export const productType = defineType({
       of: [{ type: 'reference', to: { type: 'category' } }],
       description: 'Assign one or more categories for filtering products',
     }),
-    // Add other fields as needed, e.g., categories, dimensions, weight for shipping, etc.
+    defineField({
+      name: 'weight',
+      title: 'Weight (lbs)',
+      type: 'number',
+      description: 'Product weight in pounds for shipping calculations',
+      validation: (Rule) => Rule.min(0.1).max(70), // USPS limits
+    }),
+    defineField({
+      name: 'dimensions',
+      title: 'Dimensions (inches)',
+      type: 'object',
+      description: 'Product dimensions for shipping calculations',
+      fields: [
+        defineField({
+          name: 'length',
+          title: 'Length',
+          type: 'number',
+          validation: (Rule) => Rule.min(0.1),
+        }),
+        defineField({
+          name: 'width',
+          title: 'Width',
+          type: 'number',
+          validation: (Rule) => Rule.min(0.1),
+        }),
+        defineField({
+          name: 'height',
+          title: 'Height',
+          type: 'number',
+          validation: (Rule) => Rule.min(0.1),
+        }),
+      ],
+    })
   ],
   preview: {
     select: {

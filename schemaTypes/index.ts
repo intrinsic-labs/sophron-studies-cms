@@ -15,6 +15,7 @@ import aboutGallerySection from './aboutGallerySection'
 import { productType } from './productType'
 import { categoryType } from './categoryType'
 import testimonialsSection from './testimonialsSection'
+import shippingConfig from './shippingConfig'
 
 export const schemaTypes = [
   // Document types
@@ -27,6 +28,7 @@ export const schemaTypes = [
   productType,
   categoryType,
   upcomingReleaseSection,
+  shippingConfig,
 
   // Object types (used within documents)
   blockContent,
