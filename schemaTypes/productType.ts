@@ -57,6 +57,23 @@ export const productType = defineType({
       of: [{ type: 'reference', to: { type: 'category' } }],
       description: 'Assign one or more categories for filtering products',
     }),
+    defineField({
+      name: 'sizes',
+      title: 'Available Sizes',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Optional: Add sizes for products like apparel (e.g., S, M, L, XL)',
+      options: {
+        list: [
+          { title: 'Extra Small', value: 'XS' },
+          { title: 'Small', value: 'S' },
+          { title: 'Medium', value: 'M' },
+          { title: 'Large', value: 'L' },
+          { title: 'Extra Large', value: 'XL' },
+          { title: 'XXL', value: 'XXL' },
+        ],
+      },
+    }),
     // Add other fields as needed, e.g., categories, dimensions, weight for shipping, etc.
   ],
   preview: {
