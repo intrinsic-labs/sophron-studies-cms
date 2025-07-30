@@ -1,0 +1,5 @@
+{
+  "schema": "./schema.json",
+  "generates": "../sophron-studies-frontend/src/sanity/types.ts",
+  "path": "../sophron-studies-frontend/src/**/*.{ts,tsx,js,jsx}"
+} 
