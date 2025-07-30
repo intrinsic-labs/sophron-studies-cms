@@ -7,6 +7,15 @@ export default defineType({
   description: 'Featured upcoming product releases and announcements',
   fieldsets: [
     {
+      name: 'settings',
+      title: 'Display Settings',
+      options: {
+        collapsible: true,
+        collapsed: false,
+        columns: 2
+      }
+    },
+    {
       name: 'title',
       title: 'Section Title',
       options: {
@@ -39,6 +48,36 @@ export default defineType({
       title: 'Internal Title',
       type: 'string',
       description: 'Identifier for this upcoming release within Sanity Studio (e.g., "Fall 2024 Book Release")',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'status',
+      title: 'Release Status',
+      type: 'string',
+      fieldset: 'settings',
+      options: {
+        list: [
+          { title: 'Coming Soon', value: 'comingSoon' },
+          { title: 'New Release', value: 'newRelease' }
+        ],
+        layout: 'radio'
+      },
+      initialValue: 'comingSoon',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'backgroundTheme',
+      title: 'Background Theme',
+      type: 'string',
+      fieldset: 'settings',
+      options: {
+        list: [
+          { title: 'Dark', value: 'dark' },
+          { title: 'Light', value: 'light' }
+        ],
+        layout: 'radio'
+      },
+      initialValue: 'dark',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

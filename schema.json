@@ -1088,59 +1088,6 @@
         },
         "optional": true
       },
-      "upcomingReleaseSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "reference": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "upcomingReleaseSection"
-              },
-              "optional": true
-            },
-            "customButtonText": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "customButtonLink": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
       "newsletterSection": {
         "type": "objectAttribute",
         "value": {
@@ -1782,7 +1729,7 @@
         "value": {
           "type": "object",
           "attributes": {
-            "reference": {
+            "newRelease": {
               "type": "objectAttribute",
               "value": {
                 "type": "object",
@@ -1812,17 +1759,47 @@
               },
               "optional": true
             },
-            "customButtonText": {
+            "showNewRelease": {
               "type": "objectAttribute",
               "value": {
-                "type": "string"
+                "type": "boolean"
               },
               "optional": true
             },
-            "customButtonLink": {
+            "comingSoon": {
               "type": "objectAttribute",
               "value": {
-                "type": "string"
+                "type": "object",
+                "attributes": {
+                  "_ref": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "reference"
+                    }
+                  },
+                  "_weak": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "boolean"
+                    },
+                    "optional": true
+                  }
+                },
+                "dereferencesTo": "upcomingReleaseSection"
+              },
+              "optional": true
+            },
+            "showComingSoon": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "boolean"
               },
               "optional": true
             }
@@ -2055,6 +2032,40 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "status": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "comingSoon"
+            },
+            {
+              "type": "string",
+              "value": "newRelease"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "backgroundTheme": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "dark"
+            },
+            {
+              "type": "string",
+              "value": "light"
+            }
+          ]
         },
         "optional": true
       },

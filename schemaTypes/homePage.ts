@@ -30,50 +30,34 @@ export default defineType({
     }),
     defineField({
       name: 'upcomingReleaseSection',
-      title: 'Upcoming Release Section',
+      title: 'Releases',
       type: 'object',
-      fieldsets: [
-        {
-          name: 'content',
-          title: 'Release Content',
-          options: {
-            collapsible: true,
-            collapsed: true,
-          }
-        },
-        {
-          name: 'overrides',
-          title: 'Button Overrides',
-          description: 'Optional customizations for this page',
-          options: {
-            collapsible: true,
-            collapsed: true,
-            columns: 2
-          }
-        }
-      ],
       fields: [
         defineField({
-          name: 'reference',
-          title: 'Upcoming Release',
+          name: 'newRelease',
+          title: 'New Release',
           type: 'reference',
-          fieldset: 'content',
           to: [{ type: 'upcomingReleaseSection' }],
         }),
         defineField({
-          name: 'customButtonText',
-          title: 'Custom Button Text (Optional)',
-          type: 'string',
-          fieldset: 'overrides',
-          description: 'Override the button text from the referenced section',
+          name: 'showNewRelease',
+          title: 'Show New Release Section',
+          type: 'boolean',
+          description: 'Toggle to show/hide the New Release section on the website',
+          initialValue: false,
         }),
         defineField({
-          name: 'customButtonLink',
-          title: 'Custom Button Link (Optional)',
-          type: 'url',
-          fieldset: 'overrides',
-          description: 'Override the button link from the referenced section',
-          validation: (Rule) => Rule.uri({allowRelative: true}),
+          name: 'comingSoon',
+          title: 'Coming Soon',
+          type: 'reference',
+          to: [{ type: 'upcomingReleaseSection' }],
+        }),
+        defineField({
+          name: 'showComingSoon',
+          title: 'Show Coming Soon Section',
+          type: 'boolean',
+          description: 'Toggle to show/hide the Coming Soon section on the website',
+          initialValue: false,
         }),
       ],
     }),

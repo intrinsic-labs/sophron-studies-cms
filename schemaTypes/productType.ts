@@ -105,7 +105,7 @@ export const productType = defineType({
       externalUrl: 'externalUrl',
     },
     prepare(selection) {
-      const { title, media, isAvailable, price, externalUrl } = selection
+      const { title, media, isAvailable, externalUrl } = selection
       let subtitle = '';
       
       if (!isAvailable) {
